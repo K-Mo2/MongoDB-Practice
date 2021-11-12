@@ -24,11 +24,13 @@ async function main() {
 
   //   const user = await collection.findOne({ a: 1 });
 
-  const updateUser = await collection.updateOne(
-    { a: 1 },
-    { $set: { a: "first A" } }
-  );
-  console.log(updateUser);
+  //   const updateUser = await collection.updateOne(
+  //     { a: 1 },
+  //     { $set: { a: "first A" } }
+  //   );
+
+  const deleteUser = await collection.deleteOne({ a: "first A" });
+  console.log(deleteUser);
   // the following code examples can be pasted here...
 
   return "done.";
