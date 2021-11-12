@@ -22,8 +22,13 @@ async function main() {
   //     { a: 3 },
   //   ]);
 
-  const user = await collection.findOne({ a: 1 });
-  console.log(user);
+  //   const user = await collection.findOne({ a: 1 });
+
+  const updateUser = await collection.updateOne(
+    { a: 1 },
+    { $set: { a: "first A" } }
+  );
+  console.log(updateUser);
   // the following code examples can be pasted here...
 
   return "done.";
