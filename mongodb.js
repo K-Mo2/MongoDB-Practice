@@ -29,9 +29,12 @@ async function main() {
   //     { $set: { a: "first A" } }
   //   );
 
-  const deleteUser = await collection.deleteOne({ a: "first A" });
-  console.log(deleteUser);
+  //   const deleteUser = await collection.deleteOne({ a: "first A" });
+
+  //   console.log(deleteUser);
   // the following code examples can be pasted here...
+
+  await collection.drop();
 
   return "done.";
 }
