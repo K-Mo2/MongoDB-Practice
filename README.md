@@ -33,3 +33,5 @@ This is a project to practice the MongoDB with Node.js
 5- Updating documents
 
 6- Deleting documnets
+
+7- Dropping collection
