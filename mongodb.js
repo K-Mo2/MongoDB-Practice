@@ -16,12 +16,14 @@ async function main() {
   const db = client.db(dbName);
   const collection = db.collection("documents");
 
-  const insertResult = await collection.insertMany([
-    { a: 1 },
-    { a: 2 },
-    { a: 3 },
-  ]);
-  console.log("Inserted documents =>", insertResult);
+  //   const insertResult = await collection.insertMany([
+  //     { a: 1 },
+  //     { a: 2 },
+  //     { a: 3 },
+  //   ]);
+
+  const user = await collection.findOne({ a: 1 });
+  console.log(user);
   // the following code examples can be pasted here...
 
   return "done.";
