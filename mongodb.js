@@ -1,27 +1,33 @@
 const { MongoClient } = require("mongodb");
+// or as an es module:
+// import { MongoClient } from 'mongodb'
 
+// Connection URL
 const url = "mongodb://localhost:27017";
-
 const client = new MongoClient(url);
 
-const dbName = "task-manager";
+// Database Name
+const dbName = "myProject";
 
 async function main() {
+  // Use connect method to connect to the server
   await client.connect();
-
-  console.log("Connected successfully to the server");
-
+  console.log("Connected successfully to server");
   const db = client.db(dbName);
-  const collection = db.collection("users");
+  const collection = db.collection("documents");
 
-  collection.insertOne({ name: "Sam", age: "20" });
+  const insertResult = await collection.insertMany([
+    { a: 1 },
+    { a: 2 },
+    { a: 3 },
+  ]);
+  console.log("Inserted documents =>", insertResult);
+  // the following code examples can be pasted here...
 
-  return "done";
+  return "done.";
 }
 
 main()
   .then(console.log)
   .catch(console.error)
-  .finally(() => {
-    return client.close();
-  });
+  .finally(() => client.close());
